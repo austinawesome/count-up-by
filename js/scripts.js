@@ -1,12 +1,14 @@
 $(document).ready(function() {
   $("#form1").submit(function(event) {
-    var base = parseInt($('[name="input1"]').val());
-    var limit = parseInt($('[name="input2"]').val());
-    for (var count = 0; count < limit; count += 0) {
-      count = count + base;
-      alert(count);
-    };
+    var base = Math.abs(parseInt($('[name="input1"]').val()));
+    var limit = Math.abs(parseInt($('[name="input2"]').val()));
+if (!base || !limit) {
+  alert("fool me twice, well you can't fool me again");
+}
 
-    //  event.preventDefault();
+    for (var count = base; count <= limit; count =count+base) {
+      $("#results").append("<li>" + count + "</li>");
+    };
+event.preventDefault();
   });
 });
